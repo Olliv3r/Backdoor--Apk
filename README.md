@@ -1,2 +1,2 @@
-# Backdoor--Apk
-Cria carga util
+# Backdoor-apk
+Gerador de backdoor 
